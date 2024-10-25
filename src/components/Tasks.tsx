@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-export default function Tasks({ }) {
+const Tasks = () => {
 
   let [taskList, setTaskList] = useState<string[]>([]);
   let [tasksCompleted, setTasksCompleted] = useState<string[]>([]);
   let [counter, setCounter] = useState(0);
 
-  function saveInput (info: React.KeyboardEvent<HTMLInputElement>) {
+  const saveInput = (info: React.KeyboardEvent<HTMLInputElement>) => {
     if(info.key === 'Enter'){
       if((info.currentTarget.value).length >= 250){
         alert("Please choose a smaller task")
@@ -42,6 +42,7 @@ export default function Tasks({ }) {
       setCounter(counter - 1);
     }
   };
+  
 
   return (
     <div className="taskBoxContainer">
@@ -76,3 +77,5 @@ export default function Tasks({ }) {
     </div>
   );
 }
+
+export default Tasks;
